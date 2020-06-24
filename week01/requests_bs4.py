@@ -35,16 +35,16 @@ for i, movie_block in enumerate(bs_info.find_all('div', attrs={'class': 'movie-h
     movie_name = None
     movie_type = None
     movie_time = None
-    for movie_info in movie_block.find_all('div', attrs={'class': 'movie-hover-title'}):
+    for movie_info in movie_block.find_all('div'):
         movie_name = movie_info.get('title')
         span = movie_info.find('span')
         if span.text == '类型:':
             movie_type = movie_info.text.split()[-1]
         elif span.text == '上映时间:':
             movie_time = movie_info.text.split()[-1]
-    result = {'name':movie_name, 'type': movie_type, 'time': movie_time}
+    result = {'movie_name':movie_name, 'movie_type': movie_type, 'movie_time': movie_time}
     result_list.append(result)
 
-df = pd.DataFrame(result_list, columns=['name', 'type', 'time'])
+df = pd.DataFrame(result_list)
 df.to_csv('./request_bs4_result.csv', index=False)
 print('Done')

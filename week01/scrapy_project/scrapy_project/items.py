@@ -11,4 +11,6 @@ import scrapy
 class ScrapyProjectItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    movie_name = scrapy.Field()
+    movie_type = scrapy.Field()
+    movie_time = scrapy.Field()
