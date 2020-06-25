@@ -46,5 +46,5 @@ for i, movie_block in enumerate(bs_info.find_all('div', attrs={'class': 'movie-h
     result_list.append(result)
 
 df = pd.DataFrame(result_list)
-df.to_csv('./request_bs4_result.csv', index=False)
+df.to_csv('./requests_bs4_result.csv', index=False)
 print('Done')
