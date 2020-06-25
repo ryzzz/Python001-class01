@@ -15,6 +15,6 @@
 1. 作业一为requests_bs4.py文件，输出结果为request_bs4_result.csv文件
 2. 作业二为scrapy_project目录，输出结果为scrapy_project/scrapy_project/scrapy_result.csv文件
 ## 遇到的问题
-1. 使用requests获取页面时，猫眼电影网登录会跳转美团验证页面，这时需要先在浏览器中收到验证一遍，将cookie加到requests.get的hearder参数中
+1. 使用requests获取页面时，猫眼电影网登录会跳转美团验证页面，这时需要先在浏览器中手动验证一遍，将cookie加到requests.get的hearder参数中
 2. Scrapy中setting.py需要修改默认的user_agent，不然会被猫眼拒绝访问。
 3. 当Scrapy需要使用Pipelines组件存储信息时，需要先在setting.py中打开对应的开关，不知是老师没讲还是自己眼花，查看老师代码才发现需要先打开。
