@@ -12,7 +12,7 @@
 1. Python基础语法和Python特性的简单回顾
 2. HTML和HTTP以及Xpath的简单介绍
 ### 作业
-1. 作业一为requests_bs4.py文件，输出结果为request_bs4_result.csv文件
+1. 作业一为requests_bs4.py文件，输出结果为requests_bs4_result.csv文件
 2. 作业二为scrapy_project目录，输出结果为scrapy_project/scrapy_project/scrapy_result.csv文件
 ### 遇到的问题
 1. 使用requests获取页面时，猫眼电影网登录会跳转美团验证页面，这时需要先在浏览器中手动验证一遍，将cookie加到requests.get的hearder参数中
