@@ -1,1 +1,20 @@
-学习笔记
+#Week01 学习笔记
+## 通过各独立工具，了解爬虫工作流程
+1. 使用requests库获取到需要的页面
+2. 使用BeautifulSoup库或者Xpath来解析页面，提取需要的信息
+3. 使用pandas将提取到的信息做存储
+## 了解Scrapy框架
+1. Scrapy中的Downloader组件用于获取需要的页面
+2. Scrapy中的Spiders组件解析页面，提取需要的信息
+3. Scrapy中的Pipelines组件将提取到的信息做存储
+4. Scrapy中各中间件能更好地处理信息
+## 复习Pyhton和前端知识
+1. Python基础语法和Python特性的简单回顾
+2. HTML和HTTP以及Xpath的简单介绍
+## 作业
+1. 作业一为requests_bs4.py文件，输出结果为request_bs4_result.csv文件
+2. 作业二为scrapy_project目录，输出结果为scrapy_project/scrapy_project/scrapy_result.csv文件
+## 遇到的问题
+1. 使用requests获取页面时，猫眼电影网登录会跳转美团验证页面，这时需要先在浏览器中收到验证一遍，将cookie加到requests.get的hearder参数中
+2. Scrapy中setting.py需要修改默认的user_agent，不然会被猫眼拒绝访问。
+3. 当Scrapy需要使用Pipelines组件存储信息时，需要先在setting.py中打开对应的开关，不知是老师没讲还是自己眼花，查看老师代码才发现需要先打开。

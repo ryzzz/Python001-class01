@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0bebc75-f0e9-4325-a7cf-2ea4022740bf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/request_bs4_result.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/requests_bs4.py" beforeDir="false" afterPath="$PROJECT_DIR$/week01/requests_bs4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py" beforeDir="false" afterPath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/week01/NOTE.md" beforeDir="false" afterPath="$PROJECT_DIR$/week01/NOTE.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week01/requests_bs4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            <state relative-caret-position="710">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
               </folding>
@@ -30,11 +25,23 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="520">
+                <caret line="20" selection-start-line="20" selection-end-line="20" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+            <state relative-caret-position="234">
+              <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
               <folding>
                 <element signature="e#24#34#0" expanded="true" />
               </folding>
@@ -42,7 +49,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week01/scrapy_project/scrapy_project/pipelines.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -90,6 +97,7 @@
         <option value="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/settings.py" />
         <option value="$PROJECT_DIR$/week01/requests_bs4.py" />
         <option value="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/pipelines.py" />
+        <option value="$PROJECT_DIR$/week01/NOTE.md" />
       </list>
     </option>
   </component>
@@ -104,7 +112,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1270" />
+    <option name="x" value="385" />
+    <option name="y" value="-19" />
     <option name="width" value="1300" />
     <option name="height" value="705" />
   </component>
@@ -215,14 +224,21 @@
       <option name="project" value="LOCAL" />
       <updated>1593002645423</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1.优化requests_bs4.py&#10;2.完成作业二">
+      <created>1593020310786</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1593020310787</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11846002" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23938796" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -244,7 +260,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="完成week01的作业一" />
     <MESSAGE value="初始化scrapy框架" />
-    <option name="LAST_COMMIT_MESSAGE" value="初始化scrapy框架" />
+    <MESSAGE value="1.优化requests_bs4.py&#10;2.完成作业二" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.优化requests_bs4.py&#10;2.完成作业二" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Software/Anaconda3/envs/crawler/Lib/collections/__init__.py">
@@ -263,16 +280,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week01/scrapy_project/scrapy_project/middlewares.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
     </entry>
     <entry file="file://C:/Software/Anaconda3/envs/crawler/Lib/queue.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -382,8 +389,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week01/requests_bs4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        <state relative-caret-position="710">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
           </folding>
@@ -392,8 +399,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+        <state relative-caret-position="234">
+          <caret line="12" column="50" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
           <folding>
             <element signature="e#24#34#0" expanded="true" />
           </folding>
@@ -407,6 +414,16 @@
           <folding>
             <element signature="e#25#34#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="520">
+            <caret line="20" selection-start-line="20" selection-end-line="20" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

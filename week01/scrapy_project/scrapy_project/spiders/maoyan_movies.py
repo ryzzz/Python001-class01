@@ -4,6 +4,11 @@ import scrapy
 from scrapy.selector import Selector
 from scrapy_project.items import ScrapyProjectItem
 
+'''
+爬取猫眼top电影信息，存储电影名，电影类型，上映时间到scrapy_project/scrapy_result.csv中
+爬取电影数量在settings.py中的MOVIE_NUM修改
+'''
+
 class MaoyanMoviesSpider(scrapy.Spider):
     name = 'maoyan_movies'
     allowed_domains = ['maoyan.com']
