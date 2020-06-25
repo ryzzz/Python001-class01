@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0bebc75-f0e9-4325-a7cf-2ea4022740bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b0bebc75-f0e9-4325-a7cf-2ea4022740bf" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +14,8 @@
         <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="520">
-                <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+              <first_editor relative-caret-position="442">
+                <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
               </first_editor>
               <second_editor />
             </state>
@@ -59,8 +57,8 @@
         <option value="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/settings.py" />
         <option value="$PROJECT_DIR$/week01/requests_bs4.py" />
         <option value="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/pipelines.py" />
-        <option value="$PROJECT_DIR$/week01/NOTE.md" />
         <option value="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py" />
+        <option value="$PROJECT_DIR$/week01/NOTE.md" />
       </list>
     </option>
   </component>
@@ -209,11 +207,19 @@
       <option name="project" value="LOCAL" />
       <updated>1593071703719</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="完成学习笔记">
+      <created>1593072243532</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1593072243532</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <frame x="-7" y="-7" width="2062" height="1126" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23938796" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -330,11 +336,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week01/request_bs4_result.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
       <provider editor-type-id="text-editor">
@@ -342,9 +346,11 @@
           <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state>
-          <caret lean-forward="true" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
         </state>
       </provider>
     </entry>
@@ -386,6 +392,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/week01/scrapy_project/scrapy_project/scrapy_result.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
           <column index="0" width="100" />
@@ -393,13 +400,12 @@
           <column index="2" width="100" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/week01/NOTE.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="520">
-            <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <first_editor relative-caret-position="442">
+            <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
           </first_editor>
           <second_editor />
         </state>
