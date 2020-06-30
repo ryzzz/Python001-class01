@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0bebc75-f0e9-4325-a7cf-2ea4022740bf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/NOTE.md" beforeDir="false" afterPath="$PROJECT_DIR$/week01/NOTE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/request_bs4_result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/week01/requests_bs4_result.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/requests_bs4.py" beforeDir="false" afterPath="$PROJECT_DIR$/week01/requests_bs4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/scrapy_result.csv" beforeDir="false" afterPath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/scrapy_result.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py" beforeDir="false" afterPath="$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py" afterDir="false" />
-    </list>
+    <list default="true" id="b0bebc75-f0e9-4325-a7cf-2ea4022740bf" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +10,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="40" column="52" lean-forward="true" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+            <state relative-caret-position="538">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="e#24#34#0" expanded="true" />
               </folding>
@@ -29,7 +22,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week01/requests_bs4.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="470">
@@ -247,7 +240,35 @@
       <option name="project" value="LOCAL" />
       <updated>1593072828519</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="完成学习笔记">
+      <created>1593075060921</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1593075060921</updated>
+    </task>
+    <task id="LOCAL-00009" summary="change csv name">
+      <created>1593075088420</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1593075088420</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update csv">
+      <created>1593075133858</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1593075133858</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixed page bug">
+      <created>1593075203471</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1593075203471</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -277,7 +298,10 @@
     <MESSAGE value="初始化scrapy框架" />
     <MESSAGE value="1.优化requests_bs4.py&#10;2.完成作业二" />
     <MESSAGE value="完成学习笔记" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成学习笔记" />
+    <MESSAGE value="change csv name" />
+    <MESSAGE value="update csv" />
+    <MESSAGE value="fixed page bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed page bug" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://C:/Software/Anaconda3/envs/crawler/Lib/collections/__init__.py">
@@ -439,22 +463,22 @@
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="40" column="52" lean-forward="true" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
-          <folding>
-            <element signature="e#24#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/week01/requests_bs4.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
           <caret line="49" column="13" lean-forward="true" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week01/scrapy_project/scrapy_project/spiders/maoyan_movies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#24#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
