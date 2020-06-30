@@ -2,6 +2,7 @@
 
 import os
 import pandas as pd
+from scrapy.exceptions import NotConfigured
 
 
 # Define your item pipelines here
@@ -15,6 +16,8 @@ class ScrapyProjectPipeline(object):
         self.movie_info_list = []
 
     def process_item(self, item, spider):
+        if not spider.settings.get('MOVIE_NUM'):
+            raise NotConfigured
         self.movie_num = spider.settings.get('MOVIE_NUM')
         self.movie_info_list.append(item)
         if len(self.movie_info_list) == self.movie_num:
