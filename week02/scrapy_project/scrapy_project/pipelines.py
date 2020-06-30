@@ -11,11 +11,13 @@ import pandas as pd
 
 
 class ScrapyProjectPipeline(object):
+    def __init__(self):
+        self.movie_info_list = []
+
     def process_item(self, item, spider):
-        df = pd.DataFrame(dict(item), index=[0])
-        if os.path.exists('./scrapy_result.csv'):
-            header = False
-        else:
-            header = True
-        df.to_csv('./scrapy_result.csv', mode='a', index=False, header=header)
-        return item
+        self.movie_num = spider.settings.get('MOVIE_NUM')
+        self.movie_info_list.append(item)
+        if len(self.movie_info_list) == self.movie_num:
+            df = pd.DataFrame(self.movie_info_list)
+            df.to_csv('./scrapy_result.csv', index=False)
+            return item
