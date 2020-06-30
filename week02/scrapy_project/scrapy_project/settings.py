@@ -53,9 +53,10 @@ DOWNLOAD_DELAY = 3
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    'scrapy_project.middlewares.ScrapyProjectDownloaderMiddleware': 543,
-# }
+DOWNLOADER_MIDDLEWARES = {
+   'scrapy_project.middlewares.ScrapyProjectDownloaderMiddleware': 543,
+   'scrapy_project.middlewares.RandomHttpProxyMiddleware': 400
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -95,3 +96,19 @@ ITEM_PIPELINES = {
 
 # 爬取电影数量
 MOVIE_NUM = 10
+
+# 代理服务器列表
+HTTP_PROXY_LIST = [
+   'http://119.254.94.93:44665',
+   'http://27.72.29.159:8080',
+   'http://212.129.3.228:5836',
+   'http://47.244.235.213:80',
+   'http://125.209.73.170:3128',
+   'http://178.134.155.82:48146',
+   'http://185.232.66.125:5836',
+   'http://202.131.229.10:8080',
+   'http://203.204.200.108:443',
+   'http://212.115.224.71:53281'
+   'http://52.179.231.206:80',
+   'http://95.0.194.241:9090'
+]
