@@ -23,4 +23,4 @@ class ScrapyProjectPipeline(object):
         if len(self.movie_info_list) == self.movie_num:
             df = pd.DataFrame(self.movie_info_list)
             df.to_csv('./scrapy_result.csv', index=False)
-            return item
+        return item
