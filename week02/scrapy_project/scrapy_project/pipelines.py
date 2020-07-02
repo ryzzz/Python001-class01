@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#import pandas as pd
+import pandas as pd
 import pymysql
 from scrapy.exceptions import NotConfigured
 
@@ -13,9 +13,24 @@ from scrapy.exceptions import NotConfigured
 
 class ScrapyProjectPipeline(object):
 
-    # 存储到 mysql 数据库中
+    # 可选择写入MYSQL或CSV
     # 开启爬虫时执行，只执行一次
     def open_spider(self, spider):
+        if not spider.settings.get('DATA_STORE'):
+            raise NotConfigured
+        self.data_store = spider.settings.get('DATA_STORE')
+        self.init_mysql(spider) if self.data_store == 'mysql' else self.init_csv_list()
+
+    def process_item(self, item, spider):
+        self.insert_mysql(item) if self.data_store == 'mysql' else self.append_csv_list(item)
+        return item
+
+    # 关闭爬虫时执行，只执行一次
+    def close_spider(self, spider):
+        self.disconnect_mysql() if self.data_store == 'mysql' else self.write_csv()
+
+    # 连接mysql并创建库和表
+    def init_mysql(self, spider):
         if not spider.settings.get('MYSQL_CONFIG'):
             raise NotConfigured
         mysql_config = spider.settings.get('MYSQL_CONFIG')
@@ -36,9 +51,11 @@ class ScrapyProjectPipeline(object):
         # 创建表如果表不存在
         self.cur.execute("create table if not exists top(movie_name text, movie_time text, movie_type text)")
 
-    def process_item(self, item, spider):
+    # mysql插入数据
+    def insert_mysql(self, item):
         try:
-            self.cur.execute("insert into top(movie_name, movie_time, movie_type) values ('{}', '{}', '{}');".format(item['movie_name'], item['movie_time'], item['movie_type']))
+            self.cur.execute("insert into top(movie_name, movie_time, movie_type) values ('{}', '{}', '{}');".format(
+                item['movie_name'], item['movie_time'], item['movie_type']))
             # 插入成功提交事务
             self.conn.commit()
         except Exception as e:
@@ -46,25 +63,23 @@ class ScrapyProjectPipeline(object):
             print('写入数据失败')
             print(e)
             self.conn.rollback()
-        return item
 
-    # 关闭爬虫时执行，只执行一次
-    def close_spider(self, spider):
+    # 断开mysql
+    def disconnect_mysql(self):
         # 关闭游标
         self.cur.close()
         # 关闭连接
         self.conn.close()
 
-    # # 存储到 csv 文件中
-    # # 开启爬虫时执行，只执行一次
-    # def open_spider(self, spider):
-    #     self.movie_info_list = []
-    #
-    # def process_item(self, item, spider):
-    #     self.movie_info_list.append(item)
-    #     return item
-    #
-    # # 关闭爬虫时执行，只执行一次
-    # def close_spider(self, spider):
-    #     df = pd.DataFrame(self.movie_info_list)
-    #     df.to_csv('./scrapy_result.csv', index=False)
+    # 创建列表
+    def init_csv_list(self):
+        self.movie_info_list = []
+
+    # 列表添加数据
+    def append_csv_list(self, item):
+        self.movie_info_list.append(item)
+
+    # 将列表数据入csv
+    def write_csv(self):
+        df = pd.DataFrame(self.movie_info_list)
+        df.to_csv('./scrapy_result.csv', index=False)

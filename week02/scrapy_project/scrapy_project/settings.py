@@ -121,3 +121,6 @@ MYSQL_CONFIG = {
    'password': 'root',
    'charset': 'utf8mb4'
 }
+
+# 爬取结果存储方式(mysql/csv)
+DATA_STORE = 'csv'
