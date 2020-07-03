@@ -8,7 +8,6 @@ from scrapy.exceptions import NotConfigured
 '''
 爬取猫眼top电影信息，存储电影名，电影类型，上映时间到scrapy_project/scrapy_result.csv中
 爬取电影数量在settings.py中的MOVIE_NUM修改
-如爬取失败，需要先在浏览器中手动通过美团验证页面，再进行爬取。
 '''
 
 
