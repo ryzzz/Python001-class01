@@ -9,7 +9,7 @@
 ### 学习反爬虫处理
 1. 了解 http header 中的各字段含义
 2. 学习使用 fake_useragent 来随机生成 user agent
-3. 学习通过手动或使用 WebDriver 登录网站来获取 cookies，用于保持 Seccion
+3. 学习通过手动或使用 WebDriver 登录网站来获取 cookies，用于保持 Session
 4. 学习Selenium WebDriver 的使用方法
 5. 了解验证码识别的原理和大概流程
 6. 了解使用 Redis 实现分布式爬虫的大概流程
