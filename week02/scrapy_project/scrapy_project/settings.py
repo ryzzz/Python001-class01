@@ -126,4 +126,4 @@ MYSQL_CONFIG = {
 }
 
 # 爬取结果存储方式(mysql/csv)
-DATA_STORE = 'csv'
+DATA_STORE = 'mysql'
