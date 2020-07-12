@@ -8,6 +8,7 @@ import platform
 import subprocess
 from ipaddress import ip_address
 from collections import defaultdict
+from multiprocessing.pool import Pool as ProcPool
 from multiprocessing.dummy import Pool as ThreadPool
 
 '''
@@ -59,9 +60,12 @@ def scan(ip, port=None):
         return ip
 
 
-def run(ipaddress, concurrency, function, write, view):
+def run(ipaddress, concurrency, mode, function, write, view):
     ip_list = ip_format(ipaddress)
-    pool = ThreadPool(concurrency)
+    if mode == 'thread':
+        pool = ThreadPool(concurrency)
+    else:
+        pool = ProcPool(concurrency)
     t1 = time.time()
     result_list = pool.map(scan, ip_list)
     t2 = time.time()
@@ -89,6 +93,8 @@ def run(ipaddress, concurrency, function, write, view):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Port Scanner.')
     parser.add_argument('-n', '--number', default=1, type=int, help='Number of concurrency.')
+    parser.add_argument('-m', '--mode', default='thread', choices=['thread', 'proc'],
+                        help='"ping": Scans for available IP. "tcp": Scans for available ports.')
     parser.add_argument('-f', '--function', default='ping', choices=['ping', 'tcp'],
                         help='"ping": Scans for available IP. "tcp": Scans for available ports.')
     parser.add_argument('-ip', '--ipaddress', default='127.0.0.1',
@@ -97,4 +103,4 @@ if __name__ == '__main__':
     parser.add_argument('-v', '--view', action='store_true', help='Check scanner run time.')
     args = parser.parse_args()
 
-    run(args.ipaddress, args.number, args.function, args.write, args.view)
+    run(args.ipaddress, args.number, args.mode, args.function, args.write, args.view)
