@@ -36,10 +36,10 @@ def ip_format(ipaddress):
 
 
 def ping_test(ip):
-    ret = subprocess.call("ping -n 4 {} > nul".format(ip),
-                          shell=True) if platform.system() == "Windows" else subprocess.call(
-                          "ping -c 4 {} > /dev/null".format(ip), shell=True)
-    return False if ret else True
+    result = subprocess.call("ping -n 4 {} > nul".format(ip),
+                             shell=True) if platform.system() == "Windows" else subprocess.call(
+                             "ping -c 4 {} > /dev/null".format(ip), shell=True)
+    return False if result else True
 
 
 def port_test(ip, port):
@@ -79,7 +79,7 @@ def run(ipaddress, concurrency, mode, function, write, view):
         t4 = time.time()
         available_ip_port = defaultdict(list)
         for result in result_list:
-            if isinstance(result,tuple):
+            if isinstance(result, tuple):
                 available_ip_port[result[0]].append(result[1])
         if view:
             print('tcp time: {}'.format(t4 - t3))
@@ -89,6 +89,7 @@ def run(ipaddress, concurrency, mode, function, write, view):
     if write:
         with open(write, 'w+') as f:
             json.dump(available_ip_port, f)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Port Scanner.')
