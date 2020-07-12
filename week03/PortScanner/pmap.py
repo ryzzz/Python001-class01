@@ -12,8 +12,15 @@ from multiprocessing.pool import Pool as ProcPool
 from multiprocessing.dummy import Pool as ThreadPool
 
 '''
-pip install argparse
-python3
+功能：
+1. 检查 IP 是否能 ping 通
+2. 扫描能 ping 通的 IP 开放了哪些端口
+环境：
+1. pip install argparse
+2. python3
+3. windows and Linux
+使用参考：
+python pmap.py -h
 '''
 
 PORT_RANGE = [1, 1024]
