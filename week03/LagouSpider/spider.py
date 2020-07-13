@@ -1,110 +1,119 @@
 # -*- coding: utf-8 -*-
 
-import json
+
 import time
+import random
+import pymysql
 import requests
 import pandas as pd
-from bs4 import BeautifulSoup as bs
 from fake_useragent import UserAgent
+from multiprocessing import Process, Queue
+from multiprocessing.dummy import Pool as ThreadPool
+
+try:
+    from config import *
+except:
+    from week03.LagouSpider.config import *
 
 '''
 爬取拉钩北上广深 Python 工程师薪资
 '''
-# ----------------------------
-# 拉钩网各地区 Python 相关职位 URL
-BJ = 'https://www.lagou.com/jobs/list_Python/p-city_2?px=default'
-SH = 'https://www.lagou.com/jobs/list_Python/p-city_3?px=default'
-GZ = 'https://www.lagou.com/jobs/list_Python/p-city_213?px=default'
-SZ = 'https://www.lagou.com/jobs/list_Python/p-city_215?px=default'
 
-# 爬取职位数量
-POSITION_NUM = 16
-
-# 延迟
-DOWNLOAD_DELAY = 3
-# ----------------------------
 ua = UserAgent(verify_ssl=False)
 user_agent = ua.random
+
 header = {'User-Agent': user_agent, 'origin': 'https://www.lagou.com',
           'referer': 'https://www.lagou.com/jobs/list_Python'}
 
+# 获取session
+session = requests.Session()
+session.get(url='https://www.lagou.com/jobs/list_python', headers=header, timeout=3)
 
-def start_requests(region):
-    # 获取session
-    session = requests.Session()
-    session.get(url='https://www.lagou.com/jobs/list_python', headers=header, timeout=3)
-    
-    page_num = (POSITION_NUM - 1) // 15 + 1
-    for i in range(page_num):
-        page = i + 1
-        data = {'first': True, 'pn': page, 'kd': 'python'}
-        response = session.post(
-            url='https://www.lagou.com/jobs/positionAjax.json?city={}&needAddtionalResult=false'.format(region),
-            data=data, headers=header)
-        print('Status code: {}'.format(response.status_code))
-        #print('URL: ' + response.url)
-        #print(response.text)
-        time.sleep(DOWNLOAD_DELAY)
-        parse(response, page)
+result_queue = Queue(100)
 
-def parse(response, page):
-    remaining_position_num = POSITION_NUM - (page - 1) * 15
+page_num = (POSITION_NUM - 1) // POSITION_NUM_EACH_PAGE + 1
 
-    #todo: 解析页面
-    selector_info = Selector(response=response)
-    try:
-        for i, movie_block in enumerate(selector_info.xpath('//div[@class="movie-hover-info"]')):
-            if i == remaining_position_num:
-                break
-            movie_name = None
-            movie_type = None
-            movie_time = None
-            item = ScrapyProjectItem()
-            for movie_info in movie_block.xpath('./div'):
-                movie_name = movie_info.xpath('./@title').extract_first()
-                div_text = movie_info.xpath('./text()').extract()
-                span_text = movie_info.xpath('./span/text()').extract_first()
-                if span_text == '类型:':
-                    movie_type = div_text[1].strip()
-                elif span_text == '上映时间:':
-                    movie_time = div_text[1].strip()
-            item['movie_name'] = movie_name
-            item['movie_type'] = movie_type
-            item['movie_time'] = movie_time
-            yield item
-    except Exception as e:
-        print(e)
-    
 
-def oldspider(region_url):
-    header = {'User-Agent': user_agent, 'Cookie': COOKIE}
-    response = requests.get(url=region_url, headers=header)
-    print('URL: ' + response.url)
-    print('Status code: {}'.format(response.status_code))
+def run_spider():
+    store_proc = StoreToMySQL(result_queue)
+    store_proc.start()
+    pool = ThreadPool(len(REGION_LIST))
+    pool.map(each_region, REGION_LIST)
+    pool.close()
+    pool.join()
+    result_queue.put('Done')
+    store_proc.join()
+    print('Finish.')
 
-    bs_info = bs(response.text, 'html.parser')
-    result_list = []
 
-    for i, movie_block in enumerate(bs_info.find_all('div', attrs={'class': 'movie-hover-info'})):
-        if i == POSITION_NUM:
+def each_region(region):
+    pool = ThreadPool(page_num)
+    for page in range(1, page_num + 1):
+        pool.apply_async(each_page, (page, region))
+    pool.close()
+    pool.join()
+
+
+def each_page(page, region):
+    time.sleep(random.random() * 3)
+    data = {'first': True, 'pn': page, 'kd': 'python'}
+    response = session.post(
+        url='https://www.lagou.com/jobs/positionAjax.json?city={}&needAddtionalResult=false'.format(region),
+        data=data, headers=header)
+    # print(region)
+    # print('Status code: {}'.format(response.status_code))
+    # print('URL: ' + response.url)
+    # print(response.text)
+    parse(response, page, region)
+
+
+def parse(response, page, region):
+    remaining_position_num = POSITION_NUM - (page - 1) * POSITION_NUM_EACH_PAGE
+    info = response.json()
+    result_list = info['content']['positionResult']['result']
+    for i, result in enumerate(result_list):
+        if i == remaining_position_num:
             break
-        movie_name = None
-        movie_type = None
-        movie_time = None
-        for movie_info in movie_block.find_all('div'):
-            movie_name = movie_info.get('title')
-            span = movie_info.find('span')
-            if span.text == '类型:':
-                movie_type = movie_info.text.split()[-1]
-            elif span.text == '上映时间:':
-                movie_time = movie_info.text.split()[-1]
-        result = {'movie_name': movie_name, 'movie_type': movie_type, 'movie_time': movie_time}
-        result_list.append(result)
+        pos_name = result['positionName']
+        money = result['salary']
+        result_queue.put((region, pos_name, money))
+        print(region, pos_name, money)
 
-    df = pd.DataFrame(result_list)
-    df.to_csv('./requests_bs4_result.csv', index=False)
-    print('Done')
+class StoreToMySQL(Process):
+    def __init__(self, queue):
+        super().__init__()
+        self.queue = queue
 
+    def conn_mysql(self):
+        self.conn = pymysql.connect(
+            host=MYSQL_CONFIG['host'],
+            port=MYSQL_CONFIG['port'],
+            user=MYSQL_CONFIG['user'],
+            password=MYSQL_CONFIG['password'],
+            charset=MYSQL_CONFIG['charset']
+        )
+        self.cur = self.conn.cursor()
+        self.cur.execute("create database if not exists lagou")
+        self.cur.execute("use lagou")
+        self.cur.execute("create table if not exists python(region text, position text, money text)")
+
+    def run(self):
+        self.conn_mysql()
+        while True:
+            if not self.queue.empty():
+                try:
+                    region, pos_name, money = self.queue.get()
+                except:
+                    break
+                try:
+                    self.cur.execute(
+                        "insert into python(region, position, money) values ('{}', '{}', '{}');".format(region, pos_name, money))
+                    self.conn.commit()
+                except Exception as e:
+                    print(e)
+                    self.conn.rollback()
+        self.cur.close()
+        self.conn.close()
 
 if __name__ == '__main__':
-    start_requests('广州')
+    run_spider()
