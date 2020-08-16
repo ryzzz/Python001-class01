@@ -18,15 +18,12 @@ print(my_map(str, [1,2,3,4]))
 # 作业三
 def timer(func):
     def inner(*args, **kwargs):
-        ret = func(*args, **kwargs)
-        return ret
+        start = time.time()
+        func(*args, **kwargs)
+        print(time.time() - start)
     return inner
 
 @timer
 def test_timer(t):
-    start = time.time()
     time.sleep(t)
-    print(time.time() - start)
 test_timer(2)
-
-
