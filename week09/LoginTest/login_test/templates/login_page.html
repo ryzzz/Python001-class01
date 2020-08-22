@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+{% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}')
+        {% endfor %}
+    </script>
+{% endif %}
+<p>Please input your username and password</p>
+<form action="/my_login" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Login">
+</form>
+</body>
+</html>

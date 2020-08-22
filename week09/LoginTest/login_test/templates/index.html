@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{% if messages %}
+    <script>
+        {% for msg in messages %}
+            alert('{{ msg.message }}')
+        {% endfor %}
+    </script>
+{% endif %}
+<p>Home Page</p>
+{% if request.user.is_authenticated %}
+    <div><a href="/my_logout">Logout</a></div>
+{% else %}
+    <div><a href="/my_login">Login</a></div>
+{% endif %}
+</body>
+</html>
