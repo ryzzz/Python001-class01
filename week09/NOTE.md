@@ -8,4 +8,4 @@
 5. 了解了Python另外两款web框架：Flask和Tornado。
 
 ### 作业
-本周作业在LoginTest目录，Django用户名密码为：username / password
+本周作业在LoginTest目录，Django的用户名密码为：username / password
